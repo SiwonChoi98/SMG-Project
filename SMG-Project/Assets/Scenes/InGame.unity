@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 5dc8739991143d64b9dd4de2d6d5c65b, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1163070199
 BoxCollider:
@@ -407,7 +407,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1706455312216612962, guid: 5f78a01e63c81a54e85b29b76a6230fb, type: 3}
       propertyPath: m_Name
-      value: WarriorLit
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1706455312216612962, guid: 5f78a01e63c81a54e85b29b76a6230fb, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1706455312216612966, guid: 5f78a01e63c81a54e85b29b76a6230fb, type: 3}
       propertyPath: m_RootOrder

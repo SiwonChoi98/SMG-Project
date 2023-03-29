@@ -1,0 +1,945 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.20f1 (577897200b8b) revision 5732503'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'ko' Physical Memory: 7549 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.20f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/qpqp6/OneDrive/문서/GitHub/SMGProject/SMG-Project/SMG-Project
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+58544
+Successfully changed project path to: C:/Users/qpqp6/OneDrive/문서/GitHub/SMGProject/SMG-Project/SMG-Project
+C:/Users/qpqp6/OneDrive/문서/GitHub/SMGProject/SMG-Project/SMG-Project
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [2224] Host "[IP] 172.16.100.177 [Port] 0 [Flags] 2 [Guid] 3465263172 [EditorId] 3465263172 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-ID5LL6A) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [2224] Host "[IP] 172.16.100.177 [Port] 0 [Flags] 2 [Guid] 3465263172 [EditorId] 3465263172 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-ID5LL6A) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 32.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.20f1 (577897200b8b)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/qpqp6/OneDrive/문서/GitHub/SMGProject/SMG-Project/SMG-Project/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon(TM) Graphics (ID=0x1636)
+    Vendor:   ATI
+    VRAM:     3774 MB
+    Driver:   26.20.14052.0
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56000
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.031350 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 403 ms
+Refreshing native plugins compatible for Editor in 27.26 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.218 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1218ms)
+		BeginReloadAssembly (156ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (894ms)
+			LoadAssemblies (149ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (131ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (656ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (488ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (27ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (85ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007342 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.129 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1130ms)
+		BeginReloadAssembly (188ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (24ms)
+		EndReloadAssembly (798ms)
+			LoadAssemblies (146ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (214ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (376ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (29ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (216ms)
+				ProcessInitializeOnLoadMethodAttributes (20ms)
+				AfterProcessingInitializeOnLoad (30ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1351 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 16 unused Assets / (56.7 KB). Loaded Objects now: 1826.
+Memory consumption went from 65.4 MB to 65.4 MB.
+Total: 2.841800 ms (FindLiveObjects: 0.198800 ms CreateObjectMapping: 0.034600 ms MarkObjects: 2.504000 ms  DeleteObjects: 0.103000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2618080.515835 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76690277661d08ac4ab45ad441f134c8') in 0.005804 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.167155 seconds.
+  path: Assets/Scenes/InGame.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/InGame.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5857abc8e619a5df99706b6aa4103eee') in 0.003851 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.283301 seconds.
+  path: Assets/Character/ATART/Character/Warrior
+  artifactKey: Guid(5d73d7f40536c074e85aa9572a3d4ca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior using Guid(5d73d7f40536c074e85aa9572a3d4ca2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a99fa3b0aa1d39a8c74cf283853d213') in 0.003460 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.365527 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Prefabs
+  artifactKey: Guid(4a1fb6cf8a2f02743b77bde44f145e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Prefabs using Guid(4a1fb6cf8a2f02743b77bde44f145e5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b91e4058ef2ce84a63acc6c3bd16e555') in 0.003526 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.043646 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Prefabs/Warrior.prefab
+  artifactKey: Guid(a4da89dfadd57d54697f67a317b0884d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Prefabs/Warrior.prefab using Guid(a4da89dfadd57d54697f67a317b0884d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0a3412cdd41d5a271fbd292eda95741') in 0.177168 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Prefabs/WarriorLit.prefab
+  artifactKey: Guid(5f78a01e63c81a54e85b29b76a6230fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Prefabs/WarriorLit.prefab using Guid(5f78a01e63c81a54e85b29b76a6230fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e64634c131ee9b791087196d1131239') in 0.196265 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Prefabs/Warrior_Dummy.prefab
+  artifactKey: Guid(c98317791ed2efe459c6c5fe8932d47a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Prefabs/Warrior_Dummy.prefab using Guid(c98317791ed2efe459c6c5fe8932d47a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26a883be58f5f143816712635cc301ce') in 0.037473 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006966 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.492 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1493ms)
+		BeginReloadAssembly (200ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (1146ms)
+			LoadAssemblies (172ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (312ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (537ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (47ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (120ms)
+				ProcessInitializeOnLoadAttributes (293ms)
+				ProcessInitializeOnLoadMethodAttributes (32ms)
+				AfterProcessingInitializeOnLoad (44ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 6.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1332 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9 unused Assets / (24.6 KB). Loaded Objects now: 1838.
+Memory consumption went from 80.3 MB to 80.3 MB.
+Total: 4.509400 ms (FindLiveObjects: 0.358200 ms CreateObjectMapping: 0.059200 ms MarkObjects: 4.036700 ms  DeleteObjects: 0.052300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006695 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.64 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.509 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1510ms)
+		BeginReloadAssembly (203ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (28ms)
+		EndReloadAssembly (1155ms)
+			LoadAssemblies (178ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (309ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (542ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (45ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (98ms)
+				ProcessInitializeOnLoadAttributes (319ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (42ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.57 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1332 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9 unused Assets / (24.6 KB). Loaded Objects now: 1841.
+Memory consumption went from 80.3 MB to 80.3 MB.
+Total: 4.958200 ms (FindLiveObjects: 0.334200 ms CreateObjectMapping: 0.077800 ms MarkObjects: 4.475600 ms  DeleteObjects: 0.067400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 169.695954 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Textures/Warrior_Body.tga
+  artifactKey: Guid(21290ba29d5657348a0d2fb221328899) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Textures/Warrior_Body.tga using Guid(21290ba29d5657348a0d2fb221328899) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d6bddd63396f1b79be8c561c0288a4e') in 0.054207 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Textures/Warrior_WeaponShield.tga
+  artifactKey: Guid(f753b115217c8a3478df601d468fedf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Textures/Warrior_WeaponShield.tga using Guid(f753b115217c8a3478df601d468fedf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c12fff3a7bdc7e51f529443428e25a09') in 0.021036 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Textures/Warrior_WeaponSword.tga
+  artifactKey: Guid(16046c61540f53847b0025d0dc633c4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Textures/Warrior_WeaponSword.tga using Guid(16046c61540f53847b0025d0dc633c4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c354b771f2736554cca730f7fdc6db2') in 0.013620 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Textures/Warrior_Face.tga
+  artifactKey: Guid(4a4b347bd7ebbe743b71ed8d02af4255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Textures/Warrior_Face.tga using Guid(4a4b347bd7ebbe743b71ed8d02af4255) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bf081a16006ae14b6269bf43255ff1f') in 0.017628 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.737656 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Models/Mesh_Warrior.FBX
+  artifactKey: Guid(8db183a513264294aa330571e24ec348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Models/Mesh_Warrior.FBX using Guid(8db183a513264294aa330571e24ec348) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6468f4377bd5d477e5715a7468dfe1c5') in 0.170494 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Models/Mesh_Warrior_WeaponShield.FBX
+  artifactKey: Guid(26450457cc28b5b43b7dc585e0ee1be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Models/Mesh_Warrior_WeaponShield.FBX using Guid(26450457cc28b5b43b7dc585e0ee1be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '589c28c9a04c9fd2d875b72f2589b33f') in 0.025449 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Models/Mesh_Warrior_WeaponSword.FBX
+  artifactKey: Guid(d4375c5f35e02f34caed8a6832e302b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Models/Mesh_Warrior_WeaponSword.FBX using Guid(d4375c5f35e02f34caed8a6832e302b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03dce7afb0f06e2dd5a4de87b0d137d9') in 0.020689 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Models/Warrior.FBX
+  artifactKey: Guid(b04406949810a0a46b21e74416b63350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Models/Warrior.FBX using Guid(b04406949810a0a46b21e74416b63350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ba272c0e0744d2e68abc6a00dabb13c') in 0.061661 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.264983 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_Body.mat
+  artifactKey: Guid(0fab256eb2def0b41904806b25b0eb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_Body.mat using Guid(0fab256eb2def0b41904806b25b0eb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be6f17eb17ea68127ccc12bf2e416176') in 0.036559 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponSword_Lit.mat
+  artifactKey: Guid(d50e5db56d0a32f4aaf36a72ee6220c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponSword_Lit.mat using Guid(d50e5db56d0a32f4aaf36a72ee6220c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36902def72e05460c462d4129a880dba') in 0.015230 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_Hair.mat
+  artifactKey: Guid(b17fadbf85115994388ed3f65d4af9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_Hair.mat using Guid(b17fadbf85115994388ed3f65d4af9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2010c05f44ec0dce6ad8275c4174c7d') in 0.017817 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_Body_Lit.mat
+  artifactKey: Guid(d502fb65bdeb4ca4a90f530850647d8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_Body_Lit.mat using Guid(d502fb65bdeb4ca4a90f530850647d8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71f327a4b4e1bc9601110a0d3d399034') in 0.017604 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponShield.mat
+  artifactKey: Guid(7a3e1310aec1dde4395ded57f4763066) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponShield.mat using Guid(7a3e1310aec1dde4395ded57f4763066) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bba1f30e12b5fcdc96abc61fca1bbf5') in 0.014078 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponShield_Lit.mat
+  artifactKey: Guid(fe6590e7135da9d47b8afd57668fbff6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponShield_Lit.mat using Guid(fe6590e7135da9d47b8afd57668fbff6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a14d48b02bfde6dbe2819b68d9112ea0') in 0.014858 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponSword.mat
+  artifactKey: Guid(9d9d324c4d350d74c91463da5e32ed9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_WeaponSword.mat using Guid(9d9d324c4d350d74c91463da5e32ed9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6be31bdc7d8d26a00e379030398f3f06') in 0.015657 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_Face_Lit.mat
+  artifactKey: Guid(9dc41f5d48b4eeb419108f391979dbb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_Face_Lit.mat using Guid(9dc41f5d48b4eeb419108f391979dbb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b50fa36a53068f9433138295be80661') in 0.015940 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_Face.mat
+  artifactKey: Guid(cf25ba8e4785ec54c8cb131044ad0cb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_Face.mat using Guid(cf25ba8e4785ec54c8cb131044ad0cb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6c52385c34771ac1a4a2a18789daa15') in 0.013301 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Materials/Warrior_Hair_Lit.mat
+  artifactKey: Guid(e14e7cf2a7338f74e8824195ba3e6f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Materials/Warrior_Hair_Lit.mat using Guid(e14e7cf2a7338f74e8824195ba3e6f93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3d370dfaa7132cdf8b3347318eda864') in 0.016617 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.165760 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior.mask
+  artifactKey: Guid(327bf1a56dc5a884db4566a8787598f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior.mask using Guid(327bf1a56dc5a884db4566a8787598f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a92178d0eb10d4cfcca19c8862c049a') in 0.017246 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nRun_B.FBX
+  artifactKey: Guid(4699fb4115cc98341a34c7cad4fe4ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nRun_B.FBX using Guid(4699fb4115cc98341a34c7cad4fe4ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '972b91ce9eedd9683c85bb9e1db81733') in 0.038242 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_AirHit2.FBX
+  artifactKey: Guid(eb8baea2f50ffe743a490c7cbc195bc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_AirHit2.FBX using Guid(eb8baea2f50ffe743a490c7cbc195bc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44728441c01a4926a5f039fa60a825db') in 0.036214 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack1.FBX
+  artifactKey: Guid(23baeefad4249564799eebe4b0065e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack1.FBX using Guid(23baeefad4249564799eebe4b0065e57) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de6d9f427a40e7c0f762f477c74b519d') in 0.036684 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nWalk_F.FBX
+  artifactKey: Guid(e3a17d7ea64eb2b4b9bc563ffd05a311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nWalk_F.FBX using Guid(e3a17d7ea64eb2b4b9bc563ffd05a311) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddbb5e3799edce7b12d1a75d7e0c0587') in 0.032357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nIdle1.FBX
+  artifactKey: Guid(157e16845b3ff624c9e99475fbaf076c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nIdle1.FBX using Guid(157e16845b3ff624c9e99475fbaf076c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2640b328335034d96287c623f2b5dfdd') in 0.040055 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Kick1.FBX
+  artifactKey: Guid(575639529e4f052489746fe63336e72d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Kick1.FBX using Guid(575639529e4f052489746fe63336e72d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f39026b67cf9fc63665edd34427969e3') in 0.035535 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nJump_Out.FBX
+  artifactKey: Guid(74e85a62e7e38a6498eb2f9117336743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nJump_Out.FBX using Guid(74e85a62e7e38a6498eb2f9117336743) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff57a57ce7165a83221d7bb961bad5de') in 0.037445 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Dash_F.FBX
+  artifactKey: Guid(0de7749f1acedde4fb95635e6bfb7061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Dash_F.FBX using Guid(0de7749f1acedde4fb95635e6bfb7061) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b651f638ffb8ad19d41c330c9f51828d') in 0.035492 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_AirHit1.FBX
+  artifactKey: Guid(2c2f294b18bc8684eaf69eba5beec00e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_AirHit1.FBX using Guid(2c2f294b18bc8684eaf69eba5beec00e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7795aa83261ec59356367d8ed6afe2ba') in 0.033160 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack3_Out.FBX
+  artifactKey: Guid(f485bf24889de084fabf6ebb5d9ebebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack3_Out.FBX using Guid(f485bf24889de084fabf6ebb5d9ebebe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '668e65c28a74ba656e0719b4d48ae816') in 0.038941 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Buff1.FBX
+  artifactKey: Guid(a64986a76f0a596409e4dc4e0096b70d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Buff1.FBX using Guid(a64986a76f0a596409e4dc4e0096b70d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eca32458eb03aba4bbdef37e7d4e7db7') in 0.033853 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Buff2.FBX
+  artifactKey: Guid(cc11fa660956d3240aa0840c7f42c8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Buff2.FBX using Guid(cc11fa660956d3240aa0840c7f42c8c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ef1d56f109e8d3c60277fd1f97ed58e') in 0.034779 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Down.FBX
+  artifactKey: Guid(c6d5845d178c0e846b3e170be3f43f26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Down.FBX using Guid(c6d5845d178c0e846b3e170be3f43f26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3af1453d68551e042b75fc298214d2b') in 0.032621 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Strong.FBX
+  artifactKey: Guid(1524be0fe78e72b4eaeb134e6bea0c90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Strong.FBX using Guid(1524be0fe78e72b4eaeb134e6bea0c90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c01bbd267b8deb2192002e9762e943d') in 0.032536 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Jump_In.FBX
+  artifactKey: Guid(376f6cf777cf46d489526be4121bb6af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Jump_In.FBX using Guid(376f6cf777cf46d489526be4121bb6af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68b1bfc546b72a728d1c0a69a374516e') in 0.031543 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nWalk_B.FBX
+  artifactKey: Guid(f92f4950168234148b1fff4974665b21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nWalk_B.FBX using Guid(f92f4950168234148b1fff4974665b21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29e04907e7ed0973365e023ccbdfe58d') in 0.036097 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_DownHit.FBX
+  artifactKey: Guid(1b3095a45ecde9e44ade3a1b8bd098f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_DownHit.FBX using Guid(1b3095a45ecde9e44ade3a1b8bd098f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d338bd0842e672f32d3ebfbd40abbe2') in 0.041904 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@OnWall.FBX
+  artifactKey: Guid(83dbc7464c62c4a4b9e104a895b3dc23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@OnWall.FBX using Guid(83dbc7464c62c4a4b9e104a895b3dc23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b80dbfec3507bab293e3dad0edcaf38b') in 0.032398 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack2.FBX
+  artifactKey: Guid(e495e02471c96b64ba99253eaa0b3816) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack2.FBX using Guid(e495e02471c96b64ba99253eaa0b3816) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34c7f40f75f24ddfa6e1dcf3d9e1ffcc') in 0.035869 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Air_In.FBX
+  artifactKey: Guid(97c41a8ac3e59ba408807757f28cadb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Air_In.FBX using Guid(97c41a8ac3e59ba408807757f28cadb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f532ea05e0886669b487bf6b27d297f5') in 0.034932 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@BackRolling.FBX
+  artifactKey: Guid(a9034d0d067924b4995a8b2445028b94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@BackRolling.FBX using Guid(a9034d0d067924b4995a8b2445028b94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85dc46088ec8762616cb37e7dbe83545') in 0.033260 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nIdle2.FBX
+  artifactKey: Guid(dab3d26c3a6aea547add66194ac58ab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nIdle2.FBX using Guid(dab3d26c3a6aea547add66194ac58ab1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c93163d958ede6981c53ccb31b45b3a') in 0.038444 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack5.FBX
+  artifactKey: Guid(a49532a2e7f38f249aef96dd7306dbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack5.FBX using Guid(a49532a2e7f38f249aef96dd7306dbff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04cdd0f24fec02725d657e95d4ad7741') in 0.045892 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Jump_Spin.FBX
+  artifactKey: Guid(be6b5556ddf51f541bb8975c4251a1d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Jump_Spin.FBX using Guid(be6b5556ddf51f541bb8975c4251a1d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efce42e21243ef60edd2929fe19e1843') in 0.042103 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Dash_B.FBX
+  artifactKey: Guid(6745815dda9f4cc448a7e616db269087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Dash_B.FBX using Guid(6745815dda9f4cc448a7e616db269087) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65fcbaee4111478a7b477dd3d3a15971') in 0.037497 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack4.FBX
+  artifactKey: Guid(5c2c665a0e5dcc049b89f5da9edaa0ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack4.FBX using Guid(5c2c665a0e5dcc049b89f5da9edaa0ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c352a0593123b53cb7d90518e0c7589') in 0.034633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack4.FBX
+  artifactKey: Guid(3e621acd7476a5e4c8cee7f86757c6e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack4.FBX using Guid(3e621acd7476a5e4c8cee7f86757c6e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b346025e95c8c820d9a8cef07b31ad3') in 0.034005 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Air_Out.FBX
+  artifactKey: Guid(e972ff2ea61012c408573ddfa55eac8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Air_Out.FBX using Guid(e972ff2ea61012c408573ddfa55eac8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'efb4b7b53f27edb4a37261764739b9c7') in 0.039842 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Weak.FBX
+  artifactKey: Guid(898fa2572f413da499e610c91e60738a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Weak.FBX using Guid(898fa2572f413da499e610c91e60738a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83dfcee8b11196a8acef47e228a19117') in 0.039674 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Rise.FBX
+  artifactKey: Guid(a4b3a887a040aed428b8066e5aa56374) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Rise.FBX using Guid(a4b3a887a040aed428b8066e5aa56374) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b971679a6b4aa3fc181a26717bc5f608') in 0.035237 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Crouch.FBX
+  artifactKey: Guid(f3be24e796ac9be45819821ac146cd1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Crouch.FBX using Guid(f3be24e796ac9be45819821ac146cd1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1dc74fc1f8432c5eed8fb2be7558f3b') in 0.033058 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nJump_In.FBX
+  artifactKey: Guid(429fd1e24dab6a340817284a352cbb08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nJump_In.FBX using Guid(429fd1e24dab6a340817284a352cbb08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f8fcb1f61c9657245c7444ba9269035') in 0.035168 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000083 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Kick2.FBX
+  artifactKey: Guid(3ac01130aeaeb0c4cb70a47fa03e747f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Kick2.FBX using Guid(3ac01130aeaeb0c4cb70a47fa03e747f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61c280299f4218847af50a9a244f423f') in 0.040241 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Blocking.FBX
+  artifactKey: Guid(dff622bb0131b2640b888a306661ef0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Blocking.FBX using Guid(dff622bb0131b2640b888a306661ef0a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58cc887d7118e50c802788cff5055d9d') in 0.042623 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack3.FBX
+  artifactKey: Guid(be718973f49bf9745ae7c14c103eda66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Attack3.FBX using Guid(be718973f49bf9745ae7c14c103eda66) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2f46b12b12d01c872ff1974a3106935') in 0.033721 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Stun.FBX
+  artifactKey: Guid(4df48906fb11c3346925f41102f0c327) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_Stun.FBX using Guid(4df48906fb11c3346925f41102f0c327) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69de4d6b564c1c30b534bfc09cb8c245') in 0.037187 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack2.FBX
+  artifactKey: Guid(14668b63a2f4cc545867334cec0ed960) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack2.FBX using Guid(14668b63a2f4cc545867334cec0ed960) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec39d64b9e1d5e700379622f0c05b4c0') in 0.042300 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Death.FBX
+  artifactKey: Guid(06011c64ff21b054ea20d1ea5ddbdedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Death.FBX using Guid(06011c64ff21b054ea20d1ea5ddbdedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '075c7e23ba61606d4de56ce4acd0490d') in 0.040814 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack1.FBX
+  artifactKey: Guid(1c4c628b01c5fe344be327168fb87611) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack1.FBX using Guid(1c4c628b01c5fe344be327168fb87611) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '384758c12cee31d62896418e337dc3be') in 0.035388 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Idle1.FBX
+  artifactKey: Guid(4fb6c5d90e99813448a8e26ce48a8748) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Idle1.FBX using Guid(4fb6c5d90e99813448a8e26ce48a8748) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbcde26619e7c47fb1bf3b8db4569526') in 0.043279 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Buff3.FBX
+  artifactKey: Guid(169dbdec97412e446b92f43eec848e90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Buff3.FBX using Guid(169dbdec97412e446b92f43eec848e90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd029b6b8bd1e32fc997dcd14c46d7af') in 0.034037 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nRun_F.FBX
+  artifactKey: Guid(7c4587c29b94129458f15ff69643f9a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nRun_F.FBX using Guid(7c4587c29b94129458f15ff69643f9a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecc51b6caea41fed1f6b5e18b307fc24') in 0.034491 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Jump_Out.FBX
+  artifactKey: Guid(3f283e3457cc3994f9ea450a0af92967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Jump_Out.FBX using Guid(3f283e3457cc3994f9ea450a0af92967) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef8655ace9884d7316015370ddd3661b') in 0.039357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Rolling.FBX
+  artifactKey: Guid(4ed47325b5df3c74b8f7110aaae9985b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Rolling.FBX using Guid(4ed47325b5df3c74b8f7110aaae9985b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea27aa63da7e9c387fde3498a457a199') in 0.034161 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_DownWait.FBX
+  artifactKey: Guid(6c933cd005b8ae44b961bf6b82f0f808) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@Damage_DownWait.FBX using Guid(6c933cd005b8ae44b961bf6b82f0f808) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cf9faad35e6fad3ce913fea23bff2f7') in 0.034925 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@nRun_Fast.FBX
+  artifactKey: Guid(5ee7aba079a0ab741a3961050b8cdfc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@nRun_Fast.FBX using Guid(5ee7aba079a0ab741a3961050b8cdfc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f5a83f4feb790f092590ed429c648af') in 0.031821 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack3_In.FBX
+  artifactKey: Guid(bb157f184c3989840b5f3e4fec0b7013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Character/ATART/Character/Warrior/Animations/Warrior@JumpAttack3_In.FBX using Guid(bb157f184c3989840b5f3e4fec0b7013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '024bee7740b527e60b17613d3d6249c8') in 0.039169 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.021746 seconds.
+  path: Assets/Player
+  artifactKey: Guid(48679d450669a364b8bace518055824a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player using Guid(48679d450669a364b8bace518055824a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c3efbdff24a60ce642d01449e8a0504') in 0.003232 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 47.186252 seconds.
+  path: Assets/Player/Player.controller
+  artifactKey: Guid(33a3a5d6a31a10c4ab1a3d59443b46d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Player/Player.controller using Guid(33a3a5d6a31a10c4ab1a3d59443b46d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ccee31356c7abd031e3686bed04ebfe') in 0.009908 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007182 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.279 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1281ms)
+		BeginReloadAssembly (197ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (957ms)
+			LoadAssemblies (153ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (252ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (50ms)
+			SetupLoadedEditorAssemblies (463ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (48ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (95ms)
+				ProcessInitializeOnLoadAttributes (255ms)
+				ProcessInitializeOnLoadMethodAttributes (26ms)
+				AfterProcessingInitializeOnLoad (38ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (19ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.11 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1332 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9 unused Assets / (24.6 KB). Loaded Objects now: 1881.
+Memory consumption went from 83.1 MB to 83.1 MB.
+Total: 3.851600 ms (FindLiveObjects: 0.311300 ms CreateObjectMapping: 0.079600 ms MarkObjects: 3.433800 ms  DeleteObjects: 0.025200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008147 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.45 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.285 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1286ms)
+		BeginReloadAssembly (201ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (950ms)
+			LoadAssemblies (152ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (234ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (474ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (42ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (99ms)
+				ProcessInitializeOnLoadAttributes (265ms)
+				ProcessInitializeOnLoadMethodAttributes (27ms)
+				AfterProcessingInitializeOnLoad (40ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (19ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1332 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9 unused Assets / (24.7 KB). Loaded Objects now: 1884.
+Memory consumption went from 83.1 MB to 83.1 MB.
+Total: 3.862100 ms (FindLiveObjects: 0.158200 ms CreateObjectMapping: 0.038800 ms MarkObjects: 3.604000 ms  DeleteObjects: 0.052000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006871 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.454 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1455ms)
+		BeginReloadAssembly (238ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (1035ms)
+			LoadAssemblies (197ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (283ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (51ms)
+			SetupLoadedEditorAssemblies (479ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (42ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (103ms)
+				ProcessInitializeOnLoadAttributes (265ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (39ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (21ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1332 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9 unused Assets / (24.7 KB). Loaded Objects now: 1887.
+Memory consumption went from 83.1 MB to 83.1 MB.
+Total: 5.087800 ms (FindLiveObjects: 0.357300 ms CreateObjectMapping: 0.094300 ms MarkObjects: 4.579800 ms  DeleteObjects: 0.053100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007308 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.675 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1679ms)
+		BeginReloadAssembly (478ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (56ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (136ms)
+		EndReloadAssembly (1056ms)
+			LoadAssemblies (223ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (308ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (47ms)
+			SetupLoadedEditorAssemblies (471ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (42ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (101ms)
+				ProcessInitializeOnLoadAttributes (262ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (40ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (18ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1333 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 9 unused Assets / (24.6 KB). Loaded Objects now: 1891.
+Memory consumption went from 83.2 MB to 83.2 MB.
+Total: 7.434700 ms (FindLiveObjects: 0.339900 ms CreateObjectMapping: 0.068100 ms MarkObjects: 6.399900 ms  DeleteObjects: 0.625400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
