@@ -58,4 +58,4 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-SMG-Poject/UserSettings/
+git config core.autocrlf true
