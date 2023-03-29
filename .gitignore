@@ -59,4 +59,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 git config core.autocrlf true
-SMG-Project/Library/
+Library/
