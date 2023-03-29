@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Character/ATART/Character/Warrior/Scenes/Sample_Platformer.unity
+- path: Assets/Scenes/InGame.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
