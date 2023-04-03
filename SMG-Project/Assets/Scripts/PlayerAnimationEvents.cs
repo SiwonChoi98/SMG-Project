@@ -6,21 +6,22 @@ public class PlayerAnimationEvents : MonoBehaviour
 {
     public void AttackStart()
     {
-        GetComponent<Player>()?.AttackStart();
+        GetComponent<Player>()?.PlayerAttackStart();
     }
     public void Attack()
     {
-        GetComponent<Player>()?.Attack();
+        GetComponent<Player>()?.PlayerAttack();
     }
 
     public void AttackEnable()
     {
-        GetComponent<Player>()?.AttackEnable();
+        GetComponent<Player>()?.PlayerAttackEnable();
     }
 
     public void AttackEnd()
     {
-        GetComponent<Player>()?.AttackEnd();
+        GetComponent<Player>()?.PlayerAttackEnd();
 
     }
+
 }

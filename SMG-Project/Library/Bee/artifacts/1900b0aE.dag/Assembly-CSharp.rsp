@@ -334,8 +334,10 @@
 "Assets/Scripts/ManualCollision.cs"
 "Assets/Scripts/Monster/DefaultMonster.cs"
 "Assets/Scripts/Monster/Monster.cs"
+"Assets/Scripts/NormalAttack.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerAnimationEvents.cs"
+"Assets/Scripts/Skill.cs"
 "Assets/Skill/Hovl Studio/Resources/Scripts/For demo scenes/HS_CameraHolder.cs"
 -langversion:9.0
 
