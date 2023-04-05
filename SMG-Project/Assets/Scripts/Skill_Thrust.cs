@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// 기본 28프레임, attackforce : 0.5, 3~14정도까지 찌르기동작, 12나 13정도에 파티클 생성 Duration 0.2 , StartDelay : 0.43, 
+// 기본 28프레임, attackforce : 0.5, 3~14정도까지 찌르기동작, 12나 13정도에 파티클 생성 Duration 0.3 , StartDelay : 0.43, 
 public class Skill_Thrust : AttackBehavior
 {
     // Start is called before the first frame update

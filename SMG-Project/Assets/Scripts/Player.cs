@@ -258,7 +258,7 @@ public class Player : MonoBehaviour
     {
         if (attackKey) // 공격키를 눌렀을 경우 
         {
-            if(!isAttacking &&!isDodging) // 공격 상태가 아닌 경우 && 회피 상태도 아닌 경우
+            if(!isAttacking &&!isDodging && !isCasting) // 공격 상태가 아닌 경우 && 회피 상태도 아닌 경우 && 스킬 시전 상태도 아닌 경우
             {
                 isAttacking = true;
                 anim.SetTrigger("DoAttack"); // 애니메이터에서 Attack 서브스테이트 머신으로 들어가게 만들고
@@ -272,7 +272,7 @@ public class Player : MonoBehaviour
 
             // bool을 변수로 뺐더니 오류 발생
 
-            if (isAttacking && !isDodging && anim.GetBool("AttackEnable"))  // 공격 상태인 경우 && 회피 중이지 않은 경우 && 그리고 다음 공격 애니메이션이 가능한 경우 
+            if (isAttacking && !isDodging && !isCasting && anim.GetBool("AttackEnable"))  // 공격 상태인 경우 && 회피 중이지 않은 경우  && 스킬 시전 상태도 아닌 경우 그리고 다음 공격 애니메이션이 가능한 경우 
             {
                 int attackComboNum = anim.GetInteger("AttackCombo");
 
@@ -387,7 +387,7 @@ public class Player : MonoBehaviour
     {
         if(skillKey_1) // 스킬 1번을 눌렀을 때
         {
-            if(!isAttacking && !isDodging) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
+            if(!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
             {
                 isCasting = true;
                 anim.SetTrigger("DoSkill");
