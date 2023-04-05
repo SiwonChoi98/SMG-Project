@@ -1,18 +1,18 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviour 
 {
 
-    // ÀÏ´ÜÀº publicÀ¸·Î Ã³¸®ÇØ³ù´Ù.
+    // ì¼ë‹¨ì€ publicìœ¼ë¡œ ì²˜ë¦¬í•´ë†¨ë‹¤. 
     public Transform target;
     public Vector3 Offset;
 
     void LateUpdate()
     {
-        //¸¸¾à targetÀÌ Á¦´ë·Î ¼³Á¤ÀÌ ¾ÈµÇ¾ú´Ù¸é, Player¸¦ Ã£¾Æ¼­ ³Ö¾îÁØ´Ù.
+        //ë§Œì•½ targetì´ ì œëŒ€ë¡œ ì„¤ì •ì´ ì•ˆë˜ì—ˆë‹¤ë©´, Playerë¥¼ ì°¾ì•„ì„œ ë„£ì–´ì¤€ë‹¤.
         if (target == null)
         {
             GameObject go = GameObject.Find("Player");

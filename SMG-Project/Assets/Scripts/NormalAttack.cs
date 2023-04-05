@@ -1,12 +1,12 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ±âº» °ø°İ 1 :  Duration : 0.5, StartDelay : 0.15, À§Ä¡´Â Á÷Á¢ Á¶Á¤ÇßÀ½ , 24 ÇÁ·¹ÀÓ
-// ±âº» °ø°İ 2 : Duration : 0.56, StartDelay : 0.15, À§Ä¡´Â Á÷Á¢ Á¶Á¤ÇßÀ½ , 26 ÇÁ·¹ÀÓ
-// ±âº» °ø°İ 3 : Duration : 0.6, StartDelay : 0.3, À§Ä¡´Â Á÷Á¢ Á¶Á¤ÇßÀ½ , 38 ÇÁ·¹ÀÓ 
+// ê¸°ë³¸ ê³µê²© 1 : 24 í”„ë ˆì„, attackforce : 0.25 / Particle : Duration : 0.5, StartDelay : 0.15, ìœ„ì¹˜ëŠ” ì§ì ‘ ì¡°ì •í–ˆìŒ 
+// ê¸°ë³¸ ê³µê²© 2 :  26 í”„ë ˆì„, attackforce : 0.25 / Particle : Duration : 0.56, StartDelay : 0.15, ìœ„ì¹˜ëŠ” ì§ì ‘ ì¡°ì •í–ˆìŒ 
+// ê¸°ë³¸ ê³µê²© 3 :  38 í”„ë ˆì„ , attackforce : 0.35 / Particle : Duration : 0.6, StartDelay : 0.3, ìœ„ì¹˜ëŠ” ì§ì ‘ ì¡°ì •í–ˆìŒ
 
-public class NormalAttack : Skill
+public class NormalAttack : AttackBehavior
 {
     public ManualCollision normalAttackCollision;
 
@@ -15,13 +15,12 @@ public class NormalAttack : Skill
     {
         Collider[] colliders = normalAttackCollision?.CheckOverlapBox(targetMask);
 
-        // CheckOverlapBoxÀ» ÅëÇØ ¾ò¾î¿Â Ãæµ¹Ã¼¸¶´Ù µ¥¹ÌÁö Ã³¸®¸¦ ÇØÁØ´Ù.
+        // CheckOverlapBoxì„ í†µí•´ ì–»ì–´ì˜¨ ì¶©ëŒì²´ë§ˆë‹¤ ë°ë¯¸ì§€ ì²˜ë¦¬ë¥¼ í•´ì¤€ë‹¤. 
         foreach (Collider collider in colliders)
         {
             
         }
-        // »ìÂ¦ ¾ÕÀ¸·Î °¡´Â È¿°ú¸¦ ÁÖ±â À§ÇØ rigid¸¦ ¾ÕÀ¸·Î ¹Ğ¾îÁÜ.
-        rigid_Player.AddForce(transform.forward * attackForce, ForceMode.Impulse);
+        
 
     }
 
@@ -32,5 +31,14 @@ public class NormalAttack : Skill
         {
             particles.Play();
         }
+    }
+
+    public override void ExitParticleSystem()
+    {
+        foreach (ParticleSystem particles in particleSystems)
+        {
+            particles.Stop();
+        }
+
     }
 }

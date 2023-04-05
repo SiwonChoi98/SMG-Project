@@ -1,15 +1,19 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using UnityEngine;
 
 
-// ÇÃ·¹ÀÌ¾îÀÇ SkillTypeµé, ÀÏ´Ü ÀÏ¹İ °ø°İÀº 0, 1, 2 ·Î °íÁ¤
-public enum EPlayerSkillType : int
+// í”Œë ˆì´ì–´ì˜ SkillTypeë“¤, ì¼ë‹¨ ì¼ë°˜ ê³µê²©ì€ 0, 1, 2 ë¡œ ê³ ì •
+public enum EPlayerAttackBehaviorType : int
 {
     NormalAttack1,
     NormalAttack2, 
-    NormalAttack3
+    NormalAttack3,
+    Skill1,
+    Skill2,
+    Skill3,
+    Skill4
 }
 
 public class Player : MonoBehaviour
@@ -22,10 +26,19 @@ public class Player : MonoBehaviour
     private float vAxis;
     private bool dodge;
     private bool attackKey;
+    private bool skillKey_1;
+    
+    private bool skillKey_2;
+    
+    private bool skillKey_3;
+    
+    private bool skillKey_4;
 
     private bool isDodging;
-    public bool isAttacking;
+    private bool isAttacking;
+    private bool isCasting;
 
+    private bool isAttackingMove; // ê³µê²©í•  ë•Œ ì´ë™ì‹œì‘
     private bool isDodgeReady;
     private float dodgeCoolTime;
     private float dodgeCoolTimeMax;
@@ -35,12 +48,14 @@ public class Player : MonoBehaviour
     
     private float speed;
 
-    // ÀÓ½ÃÀûÀ¸·Î È®ÀÎÇÏ±â À§ÇØ¼­ publicÀ¸·Î ÇØµÎ¾ú´Ù.
-    public List<Skill> skills = new List<Skill>(); // °¡´ÉÇÑ °ø°İ ¹× ½ºÅ³À» ´ãÀº ¸®½ºÆ®
+    // ì„ì‹œì ìœ¼ë¡œ í™•ì¸í•˜ê¸° ìœ„í•´ì„œ publicìœ¼ë¡œ í•´ë‘ì—ˆë‹¤.
+    public List<AttackBehavior> attackBehaviors = new List<AttackBehavior>(); // ê°€ëŠ¥í•œ ê³µê²© ë° ìŠ¤í‚¬ì„ ë‹´ì€ ë¦¬ìŠ¤íŠ¸
     public ManualCollision normalAttackCollision;
     public LayerMask targetMask;
 
+    private EPlayerAttackBehaviorType playerCurrentAttackBehavior; // í”Œë ˆì´ì–´ê°€ í˜„ì¬ ìˆ˜í–‰í•˜ê³  ìˆëŠ” íƒ€ì…
 
+    #region Unity Methods
 
     private void Awake()
     {
@@ -56,24 +71,44 @@ public class Player : MonoBehaviour
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;
     }
-
+     
     void Update()
     {
         GetInput();
         Move();
+        AttakingMove(); // ì¼ë°˜ ê³µê²©í•˜ê±°ë‚˜ ìŠ¤í‚¬ì„ ìºìŠ¤íŒ…í•  ë•Œ ì‚´ì§ì”© ì´ë™
         Turn();
         Dodge();
         AttackKey();
+        SkillKey();
     }
 
-    // ÇÃ·¹ÀÌ¾îÀÇ ÀÔ·ÂÀ» ¹Ş¾Æ¿Â´Ù.
+    // í”Œë ˆì´ì–´ì˜ ì…ë ¥ì„ ë°›ì•„ì˜¨ë‹¤.
     private void GetInput()
     {
         hAxis = Input.GetAxisRaw("Horizontal"); //ad
         vAxis = Input.GetAxisRaw("Vertical"); //ws
         dodge = Input.GetButtonDown("Jump"); // space
-        attackKey = Input.GetButtonDown("Fire1"); //¸¶¿ì½º ¿ŞÂÊ
+        attackKey = Input.GetButtonDown("Fire1"); //ë§ˆìš°ìŠ¤ ì™¼ìª½
+        skillKey_1 = Input.GetButtonDown("Skill1"); // 1ë²ˆ
     }
+
+    #endregion Unity Methods
+
+    #region Helper Methods
+
+    // í”Œë ˆì´ì–´ê°€ í˜„ì¬ ìˆ˜í–‰í•˜ê³  ìˆëŠ” AttackBehaviorê°€ ë­”ì§€ ì•Œê±°ë‚˜ ë°”ê¿”ì¤˜ì•¼ í•˜ë¯€ë¡œ, ë‹¤ìŒê³¼ ê°™ì´ ì„¸íŒ…
+    public EPlayerAttackBehaviorType GetPlayerAttackBehaviorType() 
+    {
+        return playerCurrentAttackBehavior;
+    }
+
+    public void SetPlayerAttackBehaviorType(EPlayerAttackBehaviorType attackBehaviorType)
+    {
+        playerCurrentAttackBehavior = attackBehaviorType;
+    }
+
+    #endregion Helper Methods;
 
     #region Move Methods
     private void Move()
@@ -83,7 +118,7 @@ public class Player : MonoBehaviour
         if (isDodging)
             moveVec = dodgeVec;
 
-        if (!isAttacking) // °ø°İ ÁßÀÌ ¾Æ´Ñ °æ¿ì && È¸ÇÇ »óÅÂ°¡ ¾Æ´Ñ °æ¿ì
+        if (!isAttacking && !isCasting) // ê³µê²© ì¤‘ì´ ì•„ë‹Œ ê²½ìš° && ìŠ¤í‚¬ ìºìŠ¤íŒ… ì¤‘ì´ ì•„ë‹Œ ê²½ìš°
         {   
             transform.position += moveVec * speed * Time.deltaTime;
 
@@ -96,7 +131,7 @@ public class Player : MonoBehaviour
     {
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
 
-        if (moveVec != Vector3.zero && !isAttacking && !isDodging) //°¡¸¸ÀÌ ÀÖÀ»¶§´Â È¸Àü ºÒ°¡ && °ø°İ ÁßÀÌ ¾Æ´Ò °æ¿ì  && È¸ÇÇ »óÅÂ°¡ ¾Æ´Ñ °æ¿ì
+        if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //ê°€ë§Œì´ ìˆì„ë•ŒëŠ” íšŒì „ ë¶ˆê°€ && ê³µê²© ì¤‘ì´ ì•„ë‹ ê²½ìš° && castingì¤‘ì´ ì•„ë‹ ê²½ìš°  && íšŒí”¼ ìƒíƒœê°€ ì•„ë‹Œ ê²½ìš°
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 20 * Time.deltaTime);
         } 
@@ -109,7 +144,8 @@ public class Player : MonoBehaviour
 
         isDodgeReady = dodgeCoolTime >= dodgeCoolTimeMax;
 
-        if (dodge && moveVec != Vector3.zero && !isAttacking && isDodgeReady) // È¸ÇÇ Å°¸¦ ´­·¶À» °æ¿ì && ¿òÁ÷ÀÓÀÌ ÀÖ´Â °æ¿ì && °ø°İ »óÅÂ°¡ ¾Æ´Ñ °æ¿ì && ´åÁö ÄğÅ¸ÀÓÀÌ ÃæÁ·ÇÏ´Â °æ¿ì
+        if (dodge && moveVec != Vector3.zero 
+            && !isAttacking &&!isCasting && isDodgeReady) // íšŒí”¼ í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš° && ì›€ì§ì„ì´ ìˆëŠ” ê²½ìš° && ê³µê²© ìƒíƒœê°€ ì•„ë‹Œ ê²½ìš° && ìŠ¤í‚¬ ì‹œì „ë„ ì•„ë‹Œ ê²½ìš° && ë‹·ì§€ ì¿¨íƒ€ì„ì´ ì¶©ì¡±í•˜ëŠ” ê²½ìš°
         {
 
             dodgeCoolTime = 0f;
@@ -120,38 +156,49 @@ public class Player : MonoBehaviour
 
             Invoke("DodgeOut", 0.6f);
         }
-        else if (dodge && moveVec != Vector3.zero && isAttacking && isDodgeReady) // È¸ÇÇ Å°¸¦ ´­·¶À» °æ¿ì && ¿òÁ÷ÀÓÀÌ ÀÖ´Â °æ¿ì && °ø°İ »óÅÂÀÎ °æ¿ì && ´åÁö ÄğÅ¸ÀÓÀÌ ÃæÁ·ÇÏ´Â °æ¿ì
+        else if (dodge && moveVec != Vector3.zero 
+            && isAttacking && !isCasting && isDodgeReady) // íšŒí”¼ í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš° && ì›€ì§ì„ì´ ìˆëŠ” ê²½ìš° && ê³µê²© ìƒíƒœì¸ ê²½ìš° && ìŠ¤í‚¬ ì‹œì „ë„ ì•„ë‹Œ ê²½ìš°&& ë‹·ì§€ ì¿¨íƒ€ì„ì´ ì¶©ì¡±í•˜ëŠ” ê²½ìš°
         {
-            // ÇÏ´ø °ø°İÀ» Äµ½½ÇØ¾ß ÇÏ¹Ç·Î Ãë¼ÒÇØÁØ´Ù.
+            // í•˜ë˜ ê³µê²©ì„ ìº”ìŠ¬í•´ì•¼ í•˜ë¯€ë¡œ ì·¨ì†Œí•´ì¤€ë‹¤.
             PlayerAttackEnd();
 
-            // Àç»ıÇÏ°í ÀÖ´ø Particle Systemµµ ²¨Áà¾ß ÇÑ´Ù. È¸ÇÇ ÇÏ¸é Attack 1°ú 2°¡ µ¿½Ã Àç»ıµÇ´Â ¹ö±×¹ß»ı
+            // ì¬ìƒí•˜ê³  ìˆë˜ Particle Systemë„ êº¼ì¤˜ì•¼ í•œë‹¤.
 
-            int skillsCount = skills.Count;
+            
+            int skillsCount = attackBehaviors.Count;
 
             for (int i = 0; i < skillsCount; i++)
             {
-
+                attackBehaviors[i].ExitParticleSystem();
             }
+
+            isDodging = true;
             dodgeCoolTime = 0f;
             dodgeVec = moveVec;
-            transform.rotation = Quaternion.LookRotation(moveVec).normalized;
+            transform.rotation = Quaternion.LookRotation(-moveVec).normalized;
             speed *= 2;
-            anim.SetTrigger("DoDodge");
-            isDodging = true;
+            anim.SetTrigger("DoCombatDodge");
 
-            Invoke("DodgeOut", 0.5f);
+
+            Invoke("CombatDodgeOut", 0.4f);
         }
     }
+
 
     private void DodgeOut()
     {
         speed *= 0.5f;
         isDodging = false;
 
-        // Dodge¿¡¼­ PlayerAttackEnd()¸¦ ÇØÁáÁö¸¸, ¾Ö´Ï¸ŞÀÌ¼Ç Transition Å»ÃâÇÒ ¶§ AttackEnableÀ» °ÅÃÄ¼­ ³ª¿À¸é ´Ù½Ã AttackEnableÀÌ True°¡ µÈ´Ù.
-        // ±×·¯¹Ç·Î Transition DurationÀ» 0À¸·Î ÇØÁà¾ß ÇÑ´Ù.
+        // Dodgeì—ì„œ PlayerAttackEnd()ë¥¼ í•´ì¤¬ì§€ë§Œ, ì• ë‹ˆë©”ì´ì…˜ Transition íƒˆì¶œí•  ë•Œ AttackEnableì„ ê±°ì³ì„œ ë‚˜ì˜¤ë©´ ë‹¤ì‹œ AttackEnableì´ Trueê°€ ëœë‹¤.
+        // ê·¸ëŸ¬ë¯€ë¡œ Transition Durationì„ 0ìœ¼ë¡œ í•´ì¤˜ì•¼ í•œë‹¤.
         //PlayerAttackEnd();
+    }
+
+    private void CombatDodgeOut()
+    {
+        speed *= 0.5f;
+        isDodging = false;
     }
 
     private void FreezeRotation()
@@ -159,47 +206,106 @@ public class Player : MonoBehaviour
         rigid.angularVelocity = Vector3.zero;
     }
 
+    private void AttakingMove()
+    {
+        if (isAttacking || isCasting) // ê³µê²©í•˜ê±°ë‚˜ ìºìŠ¤íŒ…ì˜ ê²½ìš°
+        {
+            if (isAttackingMove) // ë§Œì•½ ê³µê²© í–‰ë™ì„ ì‹¤í–‰í•˜ì—¬ ì‚´ì§ ì´ë™í•´ì•¼ í•œë‹¤ë©´,
+            {
+                switch ((int)playerCurrentAttackBehavior)
+                {
+                    case 0:
+                        {
+                            transform.position += transform.forward * speed * Time.deltaTime * 
+                                attackBehaviors[0].attackForce;
+                            break;
+                        }
+
+                    case 1:
+                        {
+                            transform.position += transform.forward * speed * Time.deltaTime *
+                               attackBehaviors[1].attackForce;
+                            break;
+                        }
+
+                    case 2:
+                        {
+                            transform.position += transform.forward * speed * Time.deltaTime *
+                               attackBehaviors[2].attackForce;
+                            break;
+                        }
+
+                    case 3:
+                        {
+                            transform.position += transform.forward * speed * Time.deltaTime *
+                               attackBehaviors[3].attackForce;
+                            break;
+                        }
+
+
+                }
+
+                
+            }
+        }   
+    }
+    
+
     #endregion Move Methods
 
-    #region Attack Methods
+    #region NormalAttack Methods
     private void AttackKey()
     {
-        
-        if (attackKey) // °ø°İÅ°¸¦ ´­·¶À» °æ¿ì 
+        if (attackKey) // ê³µê²©í‚¤ë¥¼ ëˆŒë €ì„ ê²½ìš° 
         {
-            if(!isAttacking &&!isDodging) // °ø°İ »óÅÂ°¡ ¾Æ´Ñ °æ¿ì && È¸ÇÇ »óÅÂµµ ¾Æ´Ñ °æ¿ì
+            if(!isAttacking &&!isDodging) // ê³µê²© ìƒíƒœê°€ ì•„ë‹Œ ê²½ìš° && íšŒí”¼ ìƒíƒœë„ ì•„ë‹Œ ê²½ìš°
             {
                 isAttacking = true;
-                anim.SetTrigger("DoAttack"); // ¾Ö´Ï¸ŞÀÌÅÍ¿¡¼­ Attack ¼­ºê½ºÅ×ÀÌÆ® ¸Ó½ÅÀ¸·Î µé¾î°¡°Ô ¸¸µé°í
-                anim.SetBool("AttackEnd", false); // AttackEnd¸¦ ´Ù½Ã False·Î ÇØÁØ´Ù.
+                anim.SetTrigger("DoAttack"); // ì• ë‹ˆë©”ì´í„°ì—ì„œ Attack ì„œë¸ŒìŠ¤í…Œì´íŠ¸ ë¨¸ì‹ ìœ¼ë¡œ ë“¤ì–´ê°€ê²Œ ë§Œë“¤ê³ 
+                anim.SetBool("AttackEnd", false); // AttackEndë¥¼ ë‹¤ì‹œ Falseë¡œ í•´ì¤€ë‹¤.
 
-                skills[(int)EPlayerSkillType.NormalAttack1].ExcuteParticleSystem(); // Ã¹¹øÂ° °ø°İÀÇ ÆÄÆ¼Å¬À» Àç»ı½ÃÄÑÁØ´Ù.
+                playerCurrentAttackBehavior = 
+                    EPlayerAttackBehaviorType.NormalAttack1; // í˜„ì¬ ê³µê²© ìƒíƒœë¥¼ ê¸°ë³¸ ê³µê²© 1ë¡œ í•´ì¤€ë‹¤.
+
+                attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack1].ExcuteParticleSystem(); // ì²«ë²ˆì§¸ ê³µê²©ì˜ íŒŒí‹°í´ì„ ì¬ìƒì‹œì¼œì¤€ë‹¤.
             }
 
-            // boolÀ» º¯¼ö·Î »°´õ´Ï ¿À·ù ¹ß»ı
+            // boolì„ ë³€ìˆ˜ë¡œ ëºë”ë‹ˆ ì˜¤ë¥˜ ë°œìƒ
 
-            if (isAttacking && !isDodging && anim.GetBool("AttackEnable"))  // °ø°İ »óÅÂÀÎ °æ¿ì && È¸ÇÇ ÁßÀÌÁö ¾ÊÀº °æ¿ì && ±×¸®°í ´ÙÀ½ °ø°İ ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ °¡´ÉÇÑ °æ¿ì 
+            if (isAttacking && !isDodging && anim.GetBool("AttackEnable"))  // ê³µê²© ìƒíƒœì¸ ê²½ìš° && íšŒí”¼ ì¤‘ì´ì§€ ì•Šì€ ê²½ìš° && ê·¸ë¦¬ê³  ë‹¤ìŒ ê³µê²© ì• ë‹ˆë©”ì´ì…˜ì´ ê°€ëŠ¥í•œ ê²½ìš° 
             {
                 int attackComboNum = anim.GetInteger("AttackCombo");
 
-                switch (attackComboNum) // ÄŞº¸°¡ 1ÀÌ¸é 2·Î, 2ÀÌ¸é 3·Î, 3ÀÌ¸é ´Ù½Ã 1À¸·Î °¡°Ô ÇØÁØ´Ù.
+                switch (attackComboNum) // ì½¤ë³´ê°€ 1ì´ë©´ 2ë¡œ, 2ì´ë©´ 3ë¡œ, 3ì´ë©´ ë‹¤ì‹œ 1ìœ¼ë¡œ ê°€ê²Œ í•´ì¤€ë‹¤.
                 {
                     case 1:
                         {
                             anim.SetInteger("AttackCombo", 2);
-                            skills[(int)EPlayerSkillType.NormalAttack2].ExcuteParticleSystem();
+
+                            playerCurrentAttackBehavior = 
+                                EPlayerAttackBehaviorType.NormalAttack2; // í˜„ì¬ ê³µê²© ìƒíƒœë¥¼ ê¸°ë³¸ ê³µê²© 2ë¡œ í•´ì¤€ë‹¤.
+
+                            attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack2].ExcuteParticleSystem();
                             break;
                         }
                     case 2:
                         {
                             anim.SetInteger("AttackCombo", 3);
-                            skills[(int)EPlayerSkillType.NormalAttack3].ExcuteParticleSystem();
+
+                            playerCurrentAttackBehavior = 
+                                EPlayerAttackBehaviorType.NormalAttack3; // í˜„ì¬ ê³µê²© ìƒíƒœë¥¼ ê¸°ë³¸ ê³µê²© 3ìœ¼ë¡œ í•´ì¤€ë‹¤.
+
+                            attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack3].ExcuteParticleSystem();
                             break;
                         }
                     case 3:
                         {
                             anim.SetInteger("AttackCombo", 1);
-                            skills[(int)EPlayerSkillType.NormalAttack1].ExcuteParticleSystem();
+
+                            playerCurrentAttackBehavior = 
+                                EPlayerAttackBehaviorType.NormalAttack1; // í˜„ì¬ ê³µê²© ìƒíƒœë¥¼ ê¸°ë³¸ ê³µê²© 1ë¡œ í•´ì¤€ë‹¤.
+
+                            attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack1].ExcuteParticleSystem();
                             break;
                         }
                 }
@@ -211,38 +317,40 @@ public class Player : MonoBehaviour
        
     }
 
-    // ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ®µéÀ» publicÀ¸·Î ÇØ¾ß ¿ÜºÎ¿¡¼­ È£Ãâ °¡´ÉÇÏ´Ù.
-    // ±×¸®°í ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌº¥Æ® ÇÔ¼ö¿Í ¶È°°Àº ¸Ş¼Òµå ÀÌ¸§ ¾²¸é µ¿½Ã¿¡ ½ÇÇàµÇ¹Ç·Î ´Ù¸£°Ô ÇØ¾ß ÇÑ´Ù..
+    // ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ë“¤ì„ publicìœ¼ë¡œ í•´ì•¼ ì™¸ë¶€ì—ì„œ í˜¸ì¶œ ê°€ëŠ¥í•˜ë‹¤.
+    // ê·¸ë¦¬ê³  ì• ë‹ˆë©”ì´ì…˜ ì´ë²¤íŠ¸ í•¨ìˆ˜ì™€ ë˜‘ê°™ì€ ë©”ì†Œë“œ ì´ë¦„ ì“°ë©´ ë™ì‹œì— ì‹¤í–‰ë˜ë¯€ë¡œ ë‹¤ë¥´ê²Œ í•´ì•¼ í•œë‹¤.
 
-    // °ø°İ ¾Ö´Ï¸ŞÀÌ¼ÇÀÇ ½ÃÀÛºÎÅÍ È£Ãâ
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ì˜ ì‹œì‘ë¶€í„° í˜¸ì¶œ
     public void PlayerAttackStart()
     {
         anim.SetBool("AttackEnable", false);
-        
+
+        isAttackingMove = true;
     }
 
-    // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç Áß Å¸°İ ºÎºĞÀ» ½ÇÇàÇÏ¸é È£Ãâ
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì¤‘ íƒ€ê²© ë¶€ë¶„ì„ ì‹¤í–‰í•˜ë©´ í˜¸ì¶œ
     public void PlayerAttack()
     {
+        
         int attackComboNum = anim.GetInteger("AttackCombo");
         
         switch (attackComboNum)
         { 
             case 1:
                 {
-                    skills[(int)EPlayerSkillType.NormalAttack1].ExcuteAttack(); 
+                    attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack1].ExcuteAttack(); 
                     break; 
                 }
 
             case 2:
                 {
-                    skills[(int)EPlayerSkillType.NormalAttack2].ExcuteAttack();
+                    attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack2].ExcuteAttack();
                     break;
                 }
 
             case 3:
                 {
-                    skills[(int)EPlayerSkillType.NormalAttack3].ExcuteAttack();
+                    attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack3].ExcuteAttack();
                     break;
                 }
         }
@@ -250,14 +358,15 @@ public class Player : MonoBehaviour
     }
 
 
-    // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç Áß ´ÙÀ½ °ø°İÀÌ °¡´ÉÇÑ ½ÃÁ¡ºÎÅÍ È£Ãâ 
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì¤‘ ë‹¤ìŒ ê³µê²©ì´ ê°€ëŠ¥í•œ ì‹œì ë¶€í„° í˜¸ì¶œ 
     public void PlayerAttackEnable()
     {
         anim.SetBool("AttackEnable", true);
 
+        isAttackingMove = false;
     }
 
-    // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç Áß °ÅÀÇ ³¡³ª°¥ ¶§ Âë È£Ãâ
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì¤‘ ê±°ì˜ ëë‚˜ê°ˆ ë•Œ ì¯¤ í˜¸ì¶œ
     public void PlayerAttackEnd()
     {
         anim.SetBool("AttackEnable", false);
@@ -267,5 +376,93 @@ public class Player : MonoBehaviour
 
     }
 
+
     #endregion Attack Methods
+
+    #region Skill Methods
+
+    // ìš°ì„  ìŠ¤í‚¬í‚¤ë¥¼ ëˆ„ë¥´ë©´ ì •í•´ì§„ ëŒ€ë¡œ ìŠ¤í‚¬ì´ ë‚˜ê°€ì§€ë§Œ, ì´ ìˆœì„œëŠ” ë‚˜ì¤‘ì— ë³€ê²½ ê°€ëŠ¥í•˜ë„ë¡ í•˜ëŠ”ê²Œ ì–´ë–¤ì§€
+    // ì˜ˆë¥¼ ë“¤ì–´ SkillKey_1ì´ ì°Œë¥´ê¸°ë¥¼ ë„£ìœ¼ë©´ ì°Œë¥´ê¸°ê°€, ë‹¤ë¥¸ ë² ê¸°ë¥¼ ë„£ìœ¼ë©´ ë² ê¸°ê°€ ë‚˜ê°€ë„ë¡
+    private void SkillKey()
+    {
+        if(skillKey_1) // ìŠ¤í‚¬ 1ë²ˆì„ ëˆŒë €ì„ ë•Œ
+        {
+            if(!isAttacking && !isDodging) // ìš°ì„  ì•„ì§ê¹Œì§€ëŠ” ì¼ë°˜ ê³µê²© ìƒíƒœì—ì„œ ìº”ìŠ¬ì€ ë¶ˆê°€ëŠ¥í•˜ê²Œ
+            {
+                isCasting = true;
+                anim.SetTrigger("DoSkill");
+                anim.SetInteger("SkillNumber", 1);
+                anim.SetBool("SkillEnd", false); // SkillEndë¥¼ ë‹¤ì‹œ Falseë¡œ í•´ì¤€ë‹¤.
+                playerCurrentAttackBehavior = EPlayerAttackBehaviorType.Skill1;
+
+                attackBehaviors[(int)EPlayerAttackBehaviorType.Skill1].ExcuteParticleSystem();
+            }
+            
+        }
+
+    }
+
+    public void PlayerSkillStart()
+    {
+        isAttackingMove = true;
+    }
+
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì¤‘ íƒ€ê²© ë¶€ë¶„ì„ ì‹¤í–‰í•˜ë©´ í˜¸ì¶œ
+    public void PlayerSkill()
+    {
+
+        int SkillNum = anim.GetInteger("SkillNumber");
+
+        switch (SkillNum)
+        {
+            case 0:
+                {
+                    break;
+                }
+
+            case 1:
+                {
+                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill1].ExcuteAttack();
+                    break;
+                }
+
+            case 2:
+                {
+                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill2].ExcuteAttack();
+                    break;
+                }
+
+            case 3:
+                {
+                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill3].ExcuteAttack();
+                    break;
+                }
+
+            case 4:
+                {
+                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill4].ExcuteAttack();
+                    break;
+                }
+        }
+
+    }
+
+
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì¤‘ ë‹¤ìŒ ê³µê²©ì´ ê°€ëŠ¥í•œ ì‹œì ë¶€í„° í˜¸ì¶œ 
+    public void PlayerSkillEnable()
+    {
+        isAttackingMove = false;
+    }
+
+    // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì¤‘ ê±°ì˜ ëë‚˜ê°ˆ ë•Œ ì¯¤ í˜¸ì¶œ
+    public void PlayerSkillEnd()
+    {
+
+        anim.SetInteger("SkillNumber", 0);
+        anim.SetBool("SkillEnd", true);
+        isCasting = false;
+    }
+
+    #endregion Skill Methods
 }
+

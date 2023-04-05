@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,4 +24,23 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     }
 
-}
+    public void SkillStart()
+    {
+        GetComponent<Player>()?.PlayerSkillStart();
+    }
+    public void Skill()
+    {
+        GetComponent<Player>()?.PlayerSkill();
+    }
+
+    public void SkillEnable()
+    {
+        GetComponent<Player>()?.PlayerSkillEnable();
+    }
+
+    public void SkillEnd()
+    {
+        GetComponent<Player>()?.PlayerSkillEnd();
+
+    }
+} 
