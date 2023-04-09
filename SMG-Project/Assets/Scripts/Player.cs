@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using UnityEditorInternal;
 using UnityEngine;
 
 
@@ -17,7 +18,7 @@ public enum EPlayerSkillType : int
     None
 }
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     private Camera cameraMain;
     private Animator anim;
@@ -46,8 +47,9 @@ public class Player : MonoBehaviour
     private Vector3 dodgeVec;
     private Vector3 moveVec;
 
-    
     private float speed;
+    private float curHealth;
+    private float maxHealth = 100f;
 
     // 임시적으로 확인하기 위해서 public으로 해두었다.
     public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         speed = 5.0f;
+        curHealth = maxHealth; // 처음에 피를 100으로 채워준다.
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;
     }
@@ -522,5 +525,32 @@ public class Player : MonoBehaviour
     }
 
     #endregion Skill Methods
+
+    #region IDamageable Methods
+    public bool IsAlive => curHealth > 0;
+
+    public void TakeDamage(int damage, GameObject hittEffectPrefab)
+    {
+        if (!IsAlive)
+        {
+            return;
+        }
+
+        curHealth -= damage;
+
+        Debug.Log("Damage : " + damage);
+
+        if (IsAlive)
+        {
+
+        }
+        else
+        {
+            anim.SetTrigger("Death");
+        }
+
+    }
+
+    #endregion IDamageable Methods
 }
 
