@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 // 플레이어의 SkillType들, 일단 일반 공격은 0, 1, 2 로 고정
-public enum EPlayerAttackBehaviorType : int
+public enum EPlayerSkillType : int
 {
     NormalAttack1,
     NormalAttack2, 
@@ -13,7 +13,8 @@ public enum EPlayerAttackBehaviorType : int
     Skill1,
     Skill2,
     Skill3,
-    Skill4
+    Skill4,
+    None
 }
 
 public class Player : MonoBehaviour
@@ -49,11 +50,12 @@ public class Player : MonoBehaviour
     private float speed;
 
     // 임시적으로 확인하기 위해서 public으로 해두었다.
-    public List<AttackBehavior> attackBehaviors = new List<AttackBehavior>(); // 가능한 공격 및 스킬을 담은 리스트
+    public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트
+    public List<Transform> skillSpawnPos = new List<Transform>(); // 스킬들을 스폰할 위치를 담은 리스트
     public ManualCollision normalAttackCollision;
     public LayerMask targetMask;
 
-    private EPlayerAttackBehaviorType playerCurrentAttackBehavior; // 플레이어가 현재 수행하고 있는 타입
+    private EPlayerSkillType playerCurrentSkill; // 플레이어\가 현재 수행하고 있는 타입
 
     #region Unity Methods
 
@@ -91,6 +93,9 @@ public class Player : MonoBehaviour
         dodge = Input.GetButtonDown("Jump"); // space
         attackKey = Input.GetButtonDown("Fire1"); //마우스 왼쪽
         skillKey_1 = Input.GetButtonDown("Skill1"); // 1번
+        skillKey_2 = Input.GetButtonDown("Skill2"); // 2번
+        skillKey_3 = Input.GetButtonDown("Skill3"); // 3번
+        skillKey_4 = Input.GetButtonDown("Skill4"); // 4번
     }
 
     #endregion Unity Methods
@@ -98,14 +103,14 @@ public class Player : MonoBehaviour
     #region Helper Methods
 
     // 플레이어가 현재 수행하고 있는 AttackBehavior가 뭔지 알거나 바꿔줘야 하므로, 다음과 같이 세팅
-    public EPlayerAttackBehaviorType GetPlayerAttackBehaviorType() 
+    public EPlayerSkillType GetPlayerSkillType() 
     {
-        return playerCurrentAttackBehavior;
+        return playerCurrentSkill;
     }
 
-    public void SetPlayerAttackBehaviorType(EPlayerAttackBehaviorType attackBehaviorType)
+    public void SetPlayerSkillType(EPlayerSkillType skillType)
     {
-        playerCurrentAttackBehavior = attackBehaviorType;
+        playerCurrentSkill = skillType;
     }
 
     #endregion Helper Methods;
@@ -133,7 +138,7 @@ public class Player : MonoBehaviour
 
         if (moveVec != Vector3.zero && !isAttacking && !isCasting && !isDodging) //가만이 있을때는 회전 불가 && 공격 중이 아닐 경우 && casting중이 아닐 경우  && 회피 상태가 아닌 경우
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 20 * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveVec), 45 * Time.deltaTime);
         } 
             
     }
@@ -165,11 +170,11 @@ public class Player : MonoBehaviour
             // 재생하고 있던 Particle System도 꺼줘야 한다.
 
             
-            int skillsCount = attackBehaviors.Count;
+            int skillsCount = playerSkills.Count;
 
             for (int i = 0; i < skillsCount; i++)
             {
-                attackBehaviors[i].ExitParticleSystem();
+                playerSkills[i].ExitParticleSystem();
             }
 
             isDodging = true;
@@ -212,36 +217,47 @@ public class Player : MonoBehaviour
         {
             if (isAttackingMove) // 만약 공격 행동을 실행하여 살짝 이동해야 한다면,
             {
-                switch ((int)playerCurrentAttackBehavior)
+                switch ((int)playerCurrentSkill)
                 {
                     case 0:
                         {
                             transform.position += transform.forward * speed * Time.deltaTime * 
-                                attackBehaviors[0].attackForce;
+                                playerSkills[0].attackForce;
                             break;
                         }
 
                     case 1:
                         {
                             transform.position += transform.forward * speed * Time.deltaTime *
-                               attackBehaviors[1].attackForce;
+                               playerSkills[1].attackForce;
                             break;
                         }
 
                     case 2:
                         {
                             transform.position += transform.forward * speed * Time.deltaTime *
-                               attackBehaviors[2].attackForce;
+                               playerSkills[2].attackForce;
                             break;
                         }
 
                     case 3:
                         {
                             transform.position += transform.forward * speed * Time.deltaTime *
-                               attackBehaviors[3].attackForce;
+                               playerSkills[3].attackForce;
                             break;
                         }
-
+                    case 4:
+                        {
+                            transform.position += transform.forward * speed * Time.deltaTime *
+                                playerSkills[4].attackForce;
+                            break;
+                        }
+                    case 5:
+                        {
+                            transform.position += transform.forward * speed * Time.deltaTime *
+                                playerSkills[5].attackForce;
+                            break;
+                        }
 
                 }
 
@@ -264,10 +280,10 @@ public class Player : MonoBehaviour
                 anim.SetTrigger("DoAttack"); // 애니메이터에서 Attack 서브스테이트 머신으로 들어가게 만들고
                 anim.SetBool("AttackEnd", false); // AttackEnd를 다시 False로 해준다.
 
-                playerCurrentAttackBehavior = 
-                    EPlayerAttackBehaviorType.NormalAttack1; // 현재 공격 상태를 기본 공격 1로 해준다.
+                playerCurrentSkill = 
+                    EPlayerSkillType.NormalAttack1; // 현재 공격 상태를 기본 공격 1로 해준다.
 
-                attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack1].ExcuteParticleSystem(); // 첫번째 공격의 파티클을 재생시켜준다.
+                playerSkills[(int)EPlayerSkillType.NormalAttack1].ExcuteParticleSystem(); // 첫번째 공격의 파티클을 재생시켜준다.
             }
 
             // bool을 변수로 뺐더니 오류 발생
@@ -282,30 +298,30 @@ public class Player : MonoBehaviour
                         {
                             anim.SetInteger("AttackCombo", 2);
 
-                            playerCurrentAttackBehavior = 
-                                EPlayerAttackBehaviorType.NormalAttack2; // 현재 공격 상태를 기본 공격 2로 해준다.
+                            playerCurrentSkill = 
+                                EPlayerSkillType.NormalAttack2; // 현재 공격 상태를 기본 공격 2로 해준다.
 
-                            attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack2].ExcuteParticleSystem();
+                            playerSkills[(int)EPlayerSkillType.NormalAttack2].ExcuteParticleSystem();
                             break;
                         }
                     case 2:
                         {
                             anim.SetInteger("AttackCombo", 3);
 
-                            playerCurrentAttackBehavior = 
-                                EPlayerAttackBehaviorType.NormalAttack3; // 현재 공격 상태를 기본 공격 3으로 해준다.
+                            playerCurrentSkill = 
+                                EPlayerSkillType.NormalAttack3; // 현재 공격 상태를 기본 공격 3으로 해준다.
 
-                            attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack3].ExcuteParticleSystem();
+                            playerSkills[(int)EPlayerSkillType.NormalAttack3].ExcuteParticleSystem();
                             break;
                         }
                     case 3:
                         {
                             anim.SetInteger("AttackCombo", 1);
 
-                            playerCurrentAttackBehavior = 
-                                EPlayerAttackBehaviorType.NormalAttack1; // 현재 공격 상태를 기본 공격 1로 해준다.
+                            playerCurrentSkill = 
+                                EPlayerSkillType.NormalAttack1; // 현재 공격 상태를 기본 공격 1로 해준다.
 
-                            attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack1].ExcuteParticleSystem();
+                            playerSkills[(int)EPlayerSkillType.NormalAttack1].ExcuteParticleSystem();
                             break;
                         }
                 }
@@ -338,19 +354,19 @@ public class Player : MonoBehaviour
         { 
             case 1:
                 {
-                    attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack1].ExcuteAttack(); 
+                    playerSkills[(int)EPlayerSkillType.NormalAttack1].ExcuteAttack(); 
                     break; 
                 }
 
             case 2:
                 {
-                    attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack2].ExcuteAttack();
+                    playerSkills[(int)EPlayerSkillType.NormalAttack2].ExcuteAttack();
                     break;
                 }
 
             case 3:
                 {
-                    attackBehaviors[(int)EPlayerAttackBehaviorType.NormalAttack3].ExcuteAttack();
+                    playerSkills[(int)EPlayerSkillType.NormalAttack3].ExcuteAttack();
                     break;
                 }
         }
@@ -385,19 +401,61 @@ public class Player : MonoBehaviour
     // 예를 들어 SkillKey_1이 찌르기를 넣으면 찌르기가, 다른 베기를 넣으면 베기가 나가도록
     private void SkillKey()
     {
-        if(skillKey_1) // 스킬 1번을 눌렀을 때
+        if (skillKey_1) // 스킬 1번을 눌렀을 때
         {
-            if(!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
+            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
             {
                 isCasting = true;
                 anim.SetTrigger("DoSkill");
                 anim.SetInteger("SkillNumber", 1);
                 anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
-                playerCurrentAttackBehavior = EPlayerAttackBehaviorType.Skill1;
+                playerCurrentSkill = EPlayerSkillType.Skill1;
 
-                attackBehaviors[(int)EPlayerAttackBehaviorType.Skill1].ExcuteParticleSystem();
+                playerSkills[(int)EPlayerSkillType.Skill1].ExcuteParticleSystem();
             }
-            
+
+        }
+        else if (skillKey_2)
+        {
+            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
+            {
+                isCasting = true;
+                anim.SetTrigger("DoSkill");
+                anim.SetInteger("SkillNumber", 2);
+                anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
+                playerCurrentSkill = EPlayerSkillType.Skill2;
+
+                playerSkills[(int)EPlayerSkillType.Skill2].ExcuteParticleSystem();
+            }
+
+        }
+        else if (skillKey_3)
+        {
+            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
+            {
+                isCasting = true;
+                anim.SetTrigger("DoSkill");
+                anim.SetInteger("SkillNumber", 3);
+                anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
+                playerCurrentSkill = EPlayerSkillType.Skill3;
+
+                playerSkills[(int)EPlayerSkillType.Skill3].ExcuteParticleSystem();
+            }
+
+        }
+        else if (skillKey_4)
+        {
+            if (!isAttacking && !isDodging && !isCasting) // 우선 아직까지는 일반 공격 상태에서 캔슬은 불가능하게
+            {
+                isCasting = true;
+                anim.SetTrigger("DoSkill");
+                anim.SetInteger("SkillNumber", 4);
+                anim.SetBool("SkillEnd", false); // SkillEnd를 다시 False로 해준다.
+                playerCurrentSkill = EPlayerSkillType.Skill4;
+
+                playerSkills[(int)EPlayerSkillType.Skill4].ExcuteParticleSystem();
+            }
+
         }
 
     }
@@ -422,25 +480,25 @@ public class Player : MonoBehaviour
 
             case 1:
                 {
-                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill1].ExcuteAttack();
+                    playerSkills[(int)EPlayerSkillType.Skill1].ExcuteAttack();
                     break;
                 }
 
             case 2:
                 {
-                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill2].ExcuteAttack();
+                    playerSkills[(int)EPlayerSkillType.Skill2].ExcuteAttack();
                     break;
                 }
 
             case 3:
                 {
-                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill3].ExcuteAttack();
+                    playerSkills[(int)EPlayerSkillType.Skill3].ExcuteAttack();
                     break;
                 }
 
             case 4:
                 {
-                    attackBehaviors[(int)EPlayerAttackBehaviorType.Skill4].ExcuteAttack();
+                    playerSkills[(int)EPlayerSkillType.Skill4].ExcuteAttack();
                     break;
                 }
         }
