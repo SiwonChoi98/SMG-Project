@@ -20,6 +20,7 @@ public enum ESkillType : int
     GroundBreak,
     UpperSlash,
     Shield,
+    Baldo,
     NormalAttack
 }
 

@@ -88,6 +88,22 @@ public class SkillManager : MonoBehaviour
 
                 Destroy(UpperSlashSkill, 3f);
             }
+
+            else if (skillType == ESkillType.Baldo)
+            {
+                GameObject BaldoSkill = Instantiate(skills[(int)ESkillType.Baldo],
+                       player.skillSpawnPos[(int)ESkillType.Baldo].position,
+                       player.skillSpawnPos[(int)ESkillType.Baldo].rotation);
+
+                ParticleSystem[] particleSystems = BaldoSkill.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (ParticleSystem particle in particleSystems)
+                {
+                    particle.Play(); // 각 위치에 맞게 
+                }
+
+                Destroy(BaldoSkill, 3f);
+            }
         }
 
     }
@@ -127,7 +143,7 @@ public class SkillManager : MonoBehaviour
                     particle.Play(); // 각 위치에 맞게 
                 }
 
-                Destroy(ShieldSkill, 10f);
+                Destroy(ShieldSkill, 5f);
             }
         }
         
