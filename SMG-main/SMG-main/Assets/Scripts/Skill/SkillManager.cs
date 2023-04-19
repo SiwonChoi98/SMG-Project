@@ -113,8 +113,30 @@ public class SkillManager : MonoBehaviour
 
                 Destroy(ThrustSkill, 1f);
             }
+            else if (skill == ESkillType.Shield)
+            {
+                GameObject ShieldSkill = Instantiate(skills[(int)ESkillType.Shield],
+                                player.skillSpawnPos[(int)ESkillType.Shield].position,
+                                player.skillSpawnPos[(int)ESkillType.Shield].rotation,
+                                player.transform);
 
+                ParticleSystem[] particleSystems = ShieldSkill.GetComponentsInChildren<ParticleSystem>();
+
+                foreach (ParticleSystem particle in particleSystems)
+                {
+                    particle.Play(); // 각 위치에 맞게 
+                }
+
+                Destroy(ShieldSkill, 10f);
+            }
         }
+        
+    }
+
+    
+    public void DestroyParticle()
+    {
+
     }
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skill_UpperSlash : BaseSkill
+public class Skill_UpperSlash : BaseSkill // 0.5 정도로 attackFoce 주자.
 {
 
     [SerializeField]

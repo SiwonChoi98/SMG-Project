@@ -20,10 +20,10 @@ public class Player : MonoBehaviour, IDamageable
     [Header("조이스틱")]
     [SerializeField] private VariableJoystick joy;
     [Header("체력")]
-    [SerializeField] private int _curHealth;
-    [SerializeField] private int _maxHealth;
-    public int CurHealth { get => _curHealth; set => _curHealth = value; }
-    public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
+    [SerializeField] private int curHealth;
+    [SerializeField] private int maxHealth;
+    public int CurHealth { get => curHealth; set => curHealth = value; }
+    public int MaxHealth { get => maxHealth; set => maxHealth = value; }
     //--------------------------------------------------------------------
     private Camera cameraMain;
     private Animator anim;
@@ -53,14 +53,13 @@ public class Player : MonoBehaviour, IDamageable
     private Vector3 moveVec;
 
     private float speed;
-    private float curHealth;
-    private float maxHealth = 100f;
 
     // 임시적으로 확인하기 위해서 public으로 해두었다.
     public List<BaseSkill> playerSkills = new List<BaseSkill>(); // 가능한 공격 및 스킬을 담은 리스트, 이제는 오직 기본 공격을 위한 리스트로 변경해도 되지만, slotskill도 여기에 넣어버리자.
     
     public List<Transform> skillSpawnPos = new List<Transform>(); // 스킬들을 스폰할 위치를 담은 리스트
 
+    public int ShieldCount;
     public ManualCollision normalAttackCollision;
     public LayerMask targetMask;
 
@@ -74,12 +73,15 @@ public class Player : MonoBehaviour, IDamageable
         cameraMain = Camera.main;
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
-        dodgeCoolTimeMax = 3.0f;
+        
     }
 
     private void Start()
     {
+        dodgeCoolTimeMax = 3.0f;
+        ShieldCount = 0;
         speed = 5.0f;
+        maxHealth = 100;
         curHealth = maxHealth; // 처음에 피를 100으로 채워준다.
         isDodgeReady = true;
         dodgeCoolTime = dodgeCoolTimeMax;
@@ -481,6 +483,12 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (!IsAlive)
         {
+            return;
+        }
+
+        if(ShieldCount > 0) 
+        {
+            ShieldCount -= 1;
             return;
         }
 

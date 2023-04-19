@@ -133,7 +133,8 @@ MonoBehaviour:
   TargetMask:
     serializedVersion: 2
     m_Bits: 0
-  speed: 15
+  speed: 16.5
+  DestroyTime: 0.7
   hitFx: {fileID: 0}
 --- !u!65 &8335897027435179564
 BoxCollider:

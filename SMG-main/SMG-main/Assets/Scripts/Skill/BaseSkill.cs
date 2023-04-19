@@ -19,6 +19,7 @@ public enum ESkillType : int
     GiantSword,
     GroundBreak,
     UpperSlash,
+    Shield,
     NormalAttack
 }
 

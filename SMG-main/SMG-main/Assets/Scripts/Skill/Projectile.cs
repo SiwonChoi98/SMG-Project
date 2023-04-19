@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour // UpperSlash는 16.5 속도 , 0.7 제거
 {
     public LayerMask TargetMask;
 
     [SerializeField]
-    float speed = 1;
+    float speed = 1f;
 
     int damage = 1;
+
+    [SerializeField]
+    float DestroyTime = 1f;
 
     [SerializeField]
     GameObject hitFx;
@@ -20,7 +23,7 @@ public class Projectile : MonoBehaviour
 
         transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
 
-        Destroy(this.gameObject, 2f);
+        Destroy(this.gameObject, DestroyTime);
     }
 
     private void OnTriggerEnter(Collider collision)
